@@ -11,5 +11,10 @@ juliaEnvTest3.sampleMod
 juliaEnvTest3.sampleMod.addone
 ```
 
+```@bibliography
+
+```
+
 ```@index
+
 ```

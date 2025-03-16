@@ -9,6 +9,10 @@
 - `ans` variable is defined by Documenter for last command.
   So, without repeating plot command, we can use it to save file.
 
+# Citation Examples
+The introductory guide for Kelly investment is
+**Fortune Formula**[poundstone_fortunes_2006](@cite).
+
 ```@docs
 juliaEnvTest3.sampleGraph.gm_bar_plot
 ```

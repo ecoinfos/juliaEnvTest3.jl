@@ -1,6 +1,7 @@
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterCitations = "daee34ce-89f3-4625-b898-19384cb65244"
 GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 juliaEnvTest3 = "cc9d6b78-f92d-451c-bc74-59eadb09dff8"

@@ -1,7 +1,8 @@
 using juliaEnvTest3
 using Documenter
+using DocumenterCitations
 
-# include("genplots.jl")
+bib = CitationBibliography(joinpath(@__DIR__, "src", "refs.bib"))
 
 DocMeta.setdocmeta!(juliaEnvTest3, :DocTestSetup,
   quote
@@ -19,6 +20,7 @@ makedocs(;
     assets=String[],
   ),
   # remotes=nothing,
+  plugins=[bib],
   pages=[
     "Home" => "index.md",
     "Example" => "graph.md",
