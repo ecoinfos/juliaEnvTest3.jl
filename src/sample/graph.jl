@@ -8,6 +8,14 @@ module sampleGraph
 
 import GLMakie as gm
 import Plots as pl
+import Distributions as dt
+
+export gm_basic_line_plot, gm_scatter_plot, gm_multiple_series_plot,
+       gm_heatmap_plot, gm_bar_plot, gm_histogram_plot, gm_subplots_plot,
+       gm_log_normal_plot
+export pl_basic_line_plot, pl_scatter_plot, pl_multiple_series_plot,
+       pl_customized_plot, pl_heatmap_plot, pl_bar_plot, pl_histogram_plot,
+       pl_subplots_plot, pl_log_normal_plot
 
 """
     gm_basic_line_plot()
@@ -106,6 +114,39 @@ function gm_subplots_plot()
 end
 
 """
+    gm_log_normal_plot()
+
+Plots example for log normal distribution.
+
+# Definition
+Equivalently, ``X`` can be expressed as:
+```math
+X = e^{\\mu + \\sigma Z}
+```
+where ``Z \\sim \\mathcal{N}(0, 1)`` is a
+standard normal random variable.
+
+"""
+function gm_log_normal_plot()
+  d = dt.LogNormal(0, 0.5)
+
+  x = range(0, 5, length = 1000)
+  fig = gm.Figure()
+
+  ax1 = gm.Axis(fig[1, 1], title = "Log Normal Distribution - PDF")
+  gm.lines!(ax1, x, dt.pdf.(d, x))
+  ax1.xlabel = "x"
+  ax1.ylabel = "Probability Density"
+
+  ax2 = gm.Axis(fig[1, 2], title = "Log Normal Distribution - CDF")
+  gm.lines!(ax2, x, dt.cdf.(d, x))
+  ax2.xlabel = "x"
+  ax2.ylabel = "Cumulative Probability"
+
+  fig
+end
+
+"""
     pl_basic_line_plot()
 
 Plots basic line plot example.
@@ -196,6 +237,28 @@ function pl_subplots_plot()
   p3 = pl.bar(rand(10))
   p4 = pl.histogram(randn(1000))
   pl.plot(p1, p2, p3, p4, layout = (2, 2), size = (800, 600))
+end
+
+"""
+    pl_log_normal_plot()
+
+Plots example for log normal distribution.
+
+# Definition
+A random variable ``X`` is said to follow a log-normal distribution if its natural logarithm ``\\ln(X)`` is normally distributed. That is:
+```math
+\\ln(X) \\sim \\mathcal{N}(\\mu, \\sigma^2)
+```
+"""
+function pl_log_normal_plot()
+  d = dt.LogNormal(0, 0.5)
+  x = range(0, 5, length = 1000)
+
+  pl.plot(x, dt.pdf.(d, x), label = "PDF", title = "Log Normal Distribution")
+  pl.xlabel!("x")
+  pl.ylabel!("Probability Density")
+
+  pl.plot!(x, dt.cdf.(d, x), label = "CDF")
 end
 
 end
