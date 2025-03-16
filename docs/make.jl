@@ -17,7 +17,7 @@ makedocs(;
   format=Documenter.HTML(;
     canonical="https://ecoinfos.github.io/juliaEnvTest3.jl",
     edit_link="master",
-    assets=String[],
+    assets=String["assets/citations.css"],
   ),
   # remotes=nothing,
   plugins=[bib],
