@@ -1,7 +1,7 @@
 using juliaEnvTest3
 using Documenter
 
-include("genplots.jl")
+# include("genplots.jl")
 
 DocMeta.setdocmeta!(juliaEnvTest3, :DocTestSetup,
   quote
@@ -21,6 +21,7 @@ makedocs(;
   # remotes=nothing,
   pages=[
     "Home" => "index.md",
+    "Example" => "graph.md",
   ]
 )
 
